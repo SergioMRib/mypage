@@ -1,0 +1,44 @@
+.bg-img {
+    background-image: url(../img/homepage-background.webp) ;
+    background-image: -webkit-image-set(
+            url(../img/homepage-background.webp) 1x,
+
+        );
+background-image: image-set(
+            url(../img/homepage-background.jpeg) 1x,
+        ); /* Safari */
+    background-position: center center;
+    background-repeat:  no-repeat;
+    background-attachment: fixed;
+    background-size:  cover;
+    background-color: #999;
+}
+
+html {
+    margin: 0px;
+    height: 100%;
+    width: 100%;
+ }
+
+body {
+    margin: 0px;
+    min-height: 100%;
+    width: 100%;
+}
+
+.is-transparent  {
+    background-color: transparent;
+}
+
+@font-face {
+    font-family: 'scriptinaregular';
+    src: url('/font/scriptin-webfont.woff2') format('woff2'),
+         url('/font/scriptin-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+.natural-font {
+    font-family: scriptinaregular;
+}

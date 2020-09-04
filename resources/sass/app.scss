@@ -1,0 +1,45 @@
+//Bulma
+
+// Set theme colors:
+
+$dark-green: #0E190B;
+$dimmed-green: #2A3F1A;
+$gray-green: #505D35;
+$light-green: #86A041;
+$strong-green: #5A831D;
+$beige: #C1CF69;
+$light-beige: #f0f3d9;
+
+// update global variables
+
+$primary: $light-green;
+$success: $strong-green;
+$info: $beige;
+$light: $light-green;
+$dark: $dark-green;
+//$warning
+//$danger
+
+$text: $beige;
+$text-light: $light-green;
+$text-strong: $strong-green;
+
+$title-color: $light-beige;
+$subtitle-color: $light-green;
+
+$link: $light-green;
+$link-light: $light-beige;
+$link-dark: $dimmed-green;
+$link-visited: $dimmed-green;
+$link-hover: $light-green;
+$link-hover-border: $beige;
+
+// box customization
+
+// navbar
+
+$navbar-breakpoint: 0;
+
+
+@import '~bulma/bulma';
+
