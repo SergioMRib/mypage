@@ -1,11 +1,6 @@
-@extends('layouts.app')
+@extends('layouts.dashboard')
 
-@push('bottom')
-    <form id="logout-form" action="{{ route('logout') }}" method="POST" >
-        @csrf
-        <button class="submit">Logout</button>
-    </form>
-@endpush
+
 
 @section('content')
     @component('components.full-page-section')
@@ -16,7 +11,7 @@
 
             <div class="content">
                 <p>
-                    Welcome to <b>{{ config('app.name') }}</b>
+                    Welcome to <b>{{ config('app.name') }} dashboard</b>
                 </p>
                 <p>
                     You are logged in

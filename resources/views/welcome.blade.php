@@ -1,4 +1,4 @@
-@extends('layout.layout', ["current" => "index"])
+@extends('layouts.layout', ["current" => "index"])
 
 @section('body')
 
