@@ -22,3 +22,7 @@ Route::get('/contact-me', function () {
 })->name('contact-me');
 
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
