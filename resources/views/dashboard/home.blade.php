@@ -1,9 +1,10 @@
 @extends('layouts.dashboard')
 
 
-
 @section('content')
-    @component('components.full-page-section')
+
+    <p>This is the content</p>
+    {{-- @component('components.full-page-section')
         @component('components.card')
             @slot('title')
                 {{ config('app.name') }}
@@ -22,5 +23,5 @@
                 </form>
             </div>
         @endcomponent
-    @endcomponent
+    @endcomponent --}}
 @endsection

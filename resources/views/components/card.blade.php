@@ -1,4 +1,4 @@
-<div class="card">
+<div class="card is-transparent">
     @if (!empty($title))
     <header class="card-header">
         <p class="card-header-title">

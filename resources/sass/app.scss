@@ -9,6 +9,8 @@ $light-green: #86A041;
 $strong-green: #5A831D;
 $beige: #C1CF69;
 $light-beige: #f0f3d9;
+$red: #dd0505;
+$background: $dimmed-green;
 
 // update global variables
 
@@ -38,7 +40,7 @@ $link-hover-border: $beige;
 
 // navbar
 
-$navbar-breakpoint: 0;
+//$navbar-breakpoint: 0;
 
 
 @import '~bulma/bulma';

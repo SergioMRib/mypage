@@ -28,3 +28,4 @@ Auth::routes();
 //Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
+Route::get('/demo', 'DashboardController@demo')->name('demo');
