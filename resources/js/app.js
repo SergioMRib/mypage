@@ -1,4 +1,4 @@
-require('./bootstrap');
+//require('./bootstrap');
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
       $navbarBurgers.forEach( el => {
         el.addEventListener('click', () => {
 
+            console.log('clicked the hamburger icon')
           // Get the target from the "data-target" attribute
           const target = el.dataset.target;
           const $target = document.getElementById(target);
