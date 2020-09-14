@@ -1,6 +1,6 @@
 
 
-<aside id="navMenu" class="menu is-hidden-mobile">
+<aside id="navMenu" class="box menu is-hidden-mobile">
     <p class="menu-label">
         General
     </p>

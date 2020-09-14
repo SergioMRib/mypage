@@ -80,7 +80,7 @@
 .delete {
   -moz-appearance: none;
   -webkit-appearance: none;
-  background-color: rgba(10, 10, 10, 0.2);
+  background-color: rgba(240, 243, 217, 0.2);
   border: none;
   border-radius: 290486px;
   cursor: pointer;
@@ -104,7 +104,7 @@
 .delete::before,
 .modal-close::after,
 .delete::after {
-  background-color: white;
+  background-color: #2A3F1A;
   content: "";
   display: block;
   left: 50%;
@@ -130,12 +130,12 @@
 .delete:hover,
 .modal-close:focus,
 .delete:focus {
-  background-color: rgba(10, 10, 10, 0.3);
+  background-color: rgba(240, 243, 217, 0.3);
 }
 
 .modal-close:active,
 .delete:active {
-  background-color: rgba(10, 10, 10, 0.4);
+  background-color: rgba(240, 243, 217, 0.4);
 }
 
 .is-small.modal-close,
@@ -410,7 +410,7 @@ th:not([align]) {
 }
 
 html {
-  background-color: white;
+  background-color: #2A3F1A;
   font-size: 16px;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
@@ -547,9 +547,9 @@ table th {
 }
 
 .box {
-  background-color: white;
+  background-color: #2A3F1A;
   border-radius: 6px;
-  box-shadow: 0 0.5em 1em -0.125em rgba(10, 10, 10, 0.1), 0 0px 0 1px rgba(10, 10, 10, 0.02);
+  box-shadow: 0 0.5em 1em -0.125em rgba(240, 243, 217, 0.1), 0 0px 0 1px rgba(240, 243, 217, 0.02);
   color: #C1CF69;
   display: block;
   padding: 1.25rem;
@@ -557,15 +557,15 @@ table th {
 
 a.box:hover,
 a.box:focus {
-  box-shadow: 0 0.5em 1em -0.125em rgba(10, 10, 10, 0.1), 0 0 0 1px #86A041;
+  box-shadow: 0 0.5em 1em -0.125em rgba(240, 243, 217, 0.1), 0 0 0 1px #86A041;
 }
 
 a.box:active {
-  box-shadow: inset 0 1px 2px rgba(10, 10, 10, 0.2), 0 0 0 1px #86A041;
+  box-shadow: inset 0 1px 2px rgba(240, 243, 217, 0.2), 0 0 0 1px #86A041;
 }
 
 .button {
-  background-color: white;
+  background-color: #2A3F1A;
   border-color: #dbdbdb;
   border-width: 1px;
   color: #5A831D;
@@ -2020,7 +2020,7 @@ fieldset[disabled] .button.is-danger.is-inverted.is-outlined {
 
 .button[disabled],
 fieldset[disabled] .button {
-  background-color: white;
+  background-color: #2A3F1A;
   border-color: #dbdbdb;
   box-shadow: none;
   opacity: 0.5;
@@ -2594,7 +2594,7 @@ fieldset[disabled] .button {
 
 .notification code,
 .notification pre {
-  background: white;
+  background: #2A3F1A;
 }
 
 .notification pre code {
@@ -2939,7 +2939,7 @@ fieldset[disabled] .button {
 }
 
 .table {
-  background-color: white;
+  background-color: #2A3F1A;
   color: #5A831D;
 }
 
@@ -3537,7 +3537,7 @@ a.tag:hover {
 .select select,
 .textarea,
 .input {
-  background-color: white;
+  background-color: #2A3F1A;
   border-color: #dbdbdb;
   border-radius: 4px;
   color: #5A831D;
@@ -3647,7 +3647,7 @@ fieldset[disabled] .input:-ms-input-placeholder {
 
 .textarea,
 .input {
-  box-shadow: inset 0 0.0625em 0.125em rgba(10, 10, 10, 0.05);
+  box-shadow: inset 0 0.0625em 0.125em rgba(240, 243, 217, 0.05);
   max-width: 100%;
   width: 100%;
 }
@@ -5126,8 +5126,8 @@ fieldset[disabled] .select select:hover {
 }
 
 .card {
-  background-color: white;
-  box-shadow: 0 0.5em 1em -0.125em rgba(10, 10, 10, 0.1), 0 0px 0 1px rgba(10, 10, 10, 0.02);
+  background-color: #2A3F1A;
+  box-shadow: 0 0.5em 1em -0.125em rgba(240, 243, 217, 0.1), 0 0px 0 1px rgba(240, 243, 217, 0.02);
   color: #C1CF69;
   max-width: 100%;
   position: relative;
@@ -5136,7 +5136,7 @@ fieldset[disabled] .select select:hover {
 .card-header {
   background-color: transparent;
   align-items: stretch;
-  box-shadow: 0 0.125em 0.25em rgba(10, 10, 10, 0.1);
+  box-shadow: 0 0.125em 0.25em rgba(240, 243, 217, 0.1);
   display: flex;
 }
 
@@ -5230,9 +5230,9 @@ fieldset[disabled] .select select:hover {
 }
 
 .dropdown-content {
-  background-color: white;
+  background-color: #2A3F1A;
   border-radius: 4px;
-  box-shadow: 0 0.5em 1em -0.125em rgba(10, 10, 10, 0.1), 0 0px 0 1px rgba(10, 10, 10, 0.02);
+  box-shadow: 0 0.5em 1em -0.125em rgba(240, 243, 217, 0.1), 0 0px 0 1px rgba(240, 243, 217, 0.02);
   padding-bottom: 0.5rem;
   padding-top: 0.5rem;
 }
@@ -5257,7 +5257,7 @@ button.dropdown-item {
 a.dropdown-item:hover,
 button.dropdown-item:hover {
   background-color: #2A3F1A;
-  color: #0a0a0a;
+  color: #f0f3d9;
 }
 
 a.dropdown-item.is-active,
@@ -5712,7 +5712,7 @@ button.dropdown-item.is-active {
 
 .message-body code,
 .message-body pre {
-  background-color: white;
+  background-color: #2A3F1A;
 }
 
 .message-body pre code {
@@ -5734,7 +5734,7 @@ button.dropdown-item.is-active {
 }
 
 .modal-background {
-  background-color: rgba(10, 10, 10, 0.86);
+  background-color: rgba(240, 243, 217, 0.86);
 }
 
 .modal-content,
@@ -5809,7 +5809,7 @@ button.dropdown-item.is-active {
 
 .modal-card-body {
   -webkit-overflow-scrolling: touch;
-  background-color: white;
+  background-color: #2A3F1A;
   flex-grow: 1;
   flex-shrink: 1;
   overflow: auto;
@@ -5817,7 +5817,7 @@ button.dropdown-item.is-active {
 }
 
 .navbar {
-  background-color: white;
+  background-color: #2A3F1A;
   min-height: 3.25rem;
   position: relative;
   z-index: 30;
@@ -6760,8 +6760,8 @@ a.navbar-item.is-active,
   }
 
   .navbar-menu {
-    background-color: white;
-    box-shadow: 0 8px 16px rgba(10, 10, 10, 0.1);
+    background-color: #2A3F1A;
+    box-shadow: 0 8px 16px rgba(240, 243, 217, 0.1);
     padding: 0.5rem 0;
   }
 
@@ -6782,7 +6782,7 @@ a.navbar-item.is-active,
   }
 
   .navbar.is-fixed-bottom-touch.has-shadow {
-    box-shadow: 0 -2px 3px rgba(10, 10, 10, 0.1);
+    box-shadow: 0 -2px 3px rgba(240, 243, 217, 0.1);
   }
 
   .navbar.is-fixed-top-touch {
@@ -6853,7 +6853,7 @@ a.navbar-item.is-active,
   .navbar.is-transparent .navbar-dropdown a.navbar-item:focus,
   .navbar.is-transparent .navbar-dropdown a.navbar-item:hover {
     background-color: #2A3F1A;
-    color: #0a0a0a;
+    color: #f0f3d9;
   }
 
   .navbar.is-transparent .navbar-dropdown a.navbar-item.is-active {
@@ -6884,7 +6884,7 @@ a.navbar-item.is-active,
     border-radius: 6px 6px 0 0;
     border-top: none;
     bottom: 100%;
-    box-shadow: 0 -8px 8px rgba(10, 10, 10, 0.1);
+    box-shadow: 0 -8px 8px rgba(240, 243, 217, 0.1);
     top: auto;
   }
 
@@ -6924,11 +6924,11 @@ a.navbar-item.is-active,
   }
 
   .navbar-dropdown {
-    background-color: white;
+    background-color: #2A3F1A;
     border-bottom-left-radius: 6px;
     border-bottom-right-radius: 6px;
     border-top: 2px solid #dbdbdb;
-    box-shadow: 0 8px 8px rgba(10, 10, 10, 0.1);
+    box-shadow: 0 8px 8px rgba(240, 243, 217, 0.1);
     display: none;
     font-size: 0.875rem;
     left: 0;
@@ -6950,7 +6950,7 @@ a.navbar-item.is-active,
   .navbar-dropdown a.navbar-item:focus,
   .navbar-dropdown a.navbar-item:hover {
     background-color: #2A3F1A;
-    color: #0a0a0a;
+    color: #f0f3d9;
   }
 
   .navbar-dropdown a.navbar-item.is-active {
@@ -6962,7 +6962,7 @@ a.navbar-item.is-active,
   .navbar-dropdown.is-boxed {
     border-radius: 6px;
     border-top: none;
-    box-shadow: 0 8px 8px rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.1);
+    box-shadow: 0 8px 8px rgba(240, 243, 217, 0.1), 0 0 0 1px rgba(240, 243, 217, 0.1);
     display: block;
     opacity: 0;
     pointer-events: none;
@@ -7004,7 +7004,7 @@ a.navbar-item.is-active,
   }
 
   .navbar.is-fixed-bottom-desktop.has-shadow {
-    box-shadow: 0 -2px 3px rgba(10, 10, 10, 0.1);
+    box-shadow: 0 -2px 3px rgba(240, 243, 217, 0.1);
   }
 
   .navbar.is-fixed-top-desktop {
@@ -7033,7 +7033,7 @@ a.navbar-item.is-active,
 
   a.navbar-item.is-active,
   .navbar-link.is-active {
-    color: #0a0a0a;
+    color: #f0f3d9;
   }
 
   a.navbar-item.is-active:not(:focus):not(:hover),
@@ -7124,7 +7124,7 @@ a.navbar-item.is-active,
 .pagination-previous:active,
 .pagination-next:active,
 .pagination-link:active {
-  box-shadow: inset 0 1px 2px rgba(10, 10, 10, 0.2);
+  box-shadow: inset 0 1px 2px rgba(240, 243, 217, 0.2);
 }
 
 .pagination-previous[disabled],
@@ -7225,7 +7225,7 @@ a.navbar-item.is-active,
 
 .panel {
   border-radius: 6px;
-  box-shadow: 0 0.5em 1em -0.125em rgba(10, 10, 10, 0.1), 0 0px 0 1px rgba(10, 10, 10, 0.02);
+  box-shadow: 0 0.5em 1em -0.125em rgba(240, 243, 217, 0.1), 0 0px 0 1px rgba(240, 243, 217, 0.02);
   font-size: 1rem;
 }
 
@@ -7559,7 +7559,7 @@ label.panel-block:hover {
 }
 
 .tabs.is-boxed li.is-active a {
-  background-color: white;
+  background-color: #2A3F1A;
   border-color: #dbdbdb;
   border-bottom-color: transparent !important;
 }
@@ -11598,7 +11598,7 @@ a.has-text-danger-dark:focus {
 
 .hero.is-white .tabs.is-boxed a:hover,
 .hero.is-white .tabs.is-toggle a:hover {
-  background-color: rgba(10, 10, 10, 0.1);
+  background-color: rgba(240, 243, 217, 0.1);
 }
 
 .hero.is-white .tabs.is-boxed li.is-active a,
@@ -11682,7 +11682,7 @@ a.has-text-danger-dark:focus {
 
 .hero.is-black .tabs.is-boxed a:hover,
 .hero.is-black .tabs.is-toggle a:hover {
-  background-color: rgba(10, 10, 10, 0.1);
+  background-color: rgba(240, 243, 217, 0.1);
 }
 
 .hero.is-black .tabs.is-boxed li.is-active a,
@@ -11766,7 +11766,7 @@ a.has-text-danger-dark:focus {
 
 .hero.is-light .tabs.is-boxed a:hover,
 .hero.is-light .tabs.is-toggle a:hover {
-  background-color: rgba(10, 10, 10, 0.1);
+  background-color: rgba(240, 243, 217, 0.1);
 }
 
 .hero.is-light .tabs.is-boxed li.is-active a,
@@ -11850,7 +11850,7 @@ a.has-text-danger-dark:focus {
 
 .hero.is-dark .tabs.is-boxed a:hover,
 .hero.is-dark .tabs.is-toggle a:hover {
-  background-color: rgba(10, 10, 10, 0.1);
+  background-color: rgba(240, 243, 217, 0.1);
 }
 
 .hero.is-dark .tabs.is-boxed li.is-active a,
@@ -11934,7 +11934,7 @@ a.has-text-danger-dark:focus {
 
 .hero.is-primary .tabs.is-boxed a:hover,
 .hero.is-primary .tabs.is-toggle a:hover {
-  background-color: rgba(10, 10, 10, 0.1);
+  background-color: rgba(240, 243, 217, 0.1);
 }
 
 .hero.is-primary .tabs.is-boxed li.is-active a,
@@ -12018,7 +12018,7 @@ a.has-text-danger-dark:focus {
 
 .hero.is-link .tabs.is-boxed a:hover,
 .hero.is-link .tabs.is-toggle a:hover {
-  background-color: rgba(10, 10, 10, 0.1);
+  background-color: rgba(240, 243, 217, 0.1);
 }
 
 .hero.is-link .tabs.is-boxed li.is-active a,
@@ -12102,7 +12102,7 @@ a.has-text-danger-dark:focus {
 
 .hero.is-info .tabs.is-boxed a:hover,
 .hero.is-info .tabs.is-toggle a:hover {
-  background-color: rgba(10, 10, 10, 0.1);
+  background-color: rgba(240, 243, 217, 0.1);
 }
 
 .hero.is-info .tabs.is-boxed li.is-active a,
@@ -12186,7 +12186,7 @@ a.has-text-danger-dark:focus {
 
 .hero.is-success .tabs.is-boxed a:hover,
 .hero.is-success .tabs.is-toggle a:hover {
-  background-color: rgba(10, 10, 10, 0.1);
+  background-color: rgba(240, 243, 217, 0.1);
 }
 
 .hero.is-success .tabs.is-boxed li.is-active a,
@@ -12270,7 +12270,7 @@ a.has-text-danger-dark:focus {
 
 .hero.is-warning .tabs.is-boxed a:hover,
 .hero.is-warning .tabs.is-toggle a:hover {
-  background-color: rgba(10, 10, 10, 0.1);
+  background-color: rgba(240, 243, 217, 0.1);
 }
 
 .hero.is-warning .tabs.is-boxed li.is-active a,
@@ -12354,7 +12354,7 @@ a.has-text-danger-dark:focus {
 
 .hero.is-danger .tabs.is-boxed a:hover,
 .hero.is-danger .tabs.is-toggle a:hover {
-  background-color: rgba(10, 10, 10, 0.1);
+  background-color: rgba(240, 243, 217, 0.1);
 }
 
 .hero.is-danger .tabs.is-boxed li.is-active a,
