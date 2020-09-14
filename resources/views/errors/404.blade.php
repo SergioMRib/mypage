@@ -3,11 +3,22 @@
 @section('body')
 
         <section class="hero is-fullheight">
+
             <div class="hero-body">
-                <h3 class="title is-size-3">The page you requested was not found</h3>
-                <h3 class="subtitle is-size-3">
-                    <a href="/">Home page</a>
-                </h3>
+                <article class="message">
+                    <div class="message-header">
+                      <p>Page not found</p>
+                    </div>
+                    <div class="message-body">
+                        <p>The page you requested was not found</p>
+                        <p>
+                            <a href="/">Go to Homepage</a>
+                        </p>
+                    </div>
+                  </article>
+
+                </div>
+
             </div>
         </section>
 
