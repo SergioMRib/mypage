@@ -22,7 +22,7 @@
 </head>
 <body class="bg-img">
 
-        @component('dashboard.components.dashboard-navbar', ["current" => $current ?? ''])
+        @component('dashboard.components.dashboard-navbar')
 
         @endcomponent
 
@@ -30,7 +30,7 @@
         <div class="section columns">
 
             <section class="column is-narrow">
-                @component('dashboard.components.sidebar')
+                @component('dashboard.components.sidebar', ["current" => $current])
 
                 @endcomponent
             </section>
