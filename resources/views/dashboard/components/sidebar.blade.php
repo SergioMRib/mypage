@@ -1,19 +1,28 @@
 
-
 <aside id="navMenu" class="box menu is-hidden-mobile">
     <p class="menu-label">
         General
     </p>
     <ul class="menu-list">
-        <li><a class="is-active">Dashboard</a></li>
+        <li>
+            <a @if ($current == "dashboard") class="is-active" @endif
+                href="{{route('dashboard')}}"
+            >Dashboard</a></li>
     </ul>
     <p class="menu-label">
         Administration
     </p>
     <ul class="menu-list">
-        <li><a>Admins</a></li>
-        <li><a>Articles</a></li>
-        <li><a>Categories</a></li>
+        <li>
+            <a @if ($current =="admins") class="is-active" @endif
+                href="{{route('admins.index')}}">Admins</a>
+        </li>
+        <li>
+            <a @if ($current =="articles") class="is-active" @endif>Articles</a>
+        </li>
+        <li>
+            <a @if ($current =="categories") class="is-active" @endif>Categories</a>
+        </li>
     </ul>
     <p class="menu-label">
         Navigation
