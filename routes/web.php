@@ -30,6 +30,13 @@ Auth::routes();
 Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
 Route::get('/demo', 'DashboardController@demo')->name('demo');
 
-Route::resource('admins', 'AdminController')->only([
+/* Route::resource('admins', 'AdminController')->only([
     'index'
-]);
+]); */
+
+Route::middleware('auth')->group( function () {
+    Route::resource('admins', 'AdminController')->only([
+        'index'
+    ]);
+    Route::resource('categories', 'CategoryController');
+});
