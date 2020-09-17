@@ -7,7 +7,8 @@
         <li>
             <a @if ($current == "dashboard") class="is-active" @endif
                 href="{{route('dashboard')}}"
-            >Dashboard</a></li>
+            >Dashboard</a>
+        </li>
     </ul>
     <p class="menu-label">
         Administration
@@ -29,20 +30,16 @@
     </p>
     <ul class="menu-list">
         <li><a href="/">Home</a></li>
-    </ul>
-    <ul class="menu-list">
         <li>
             <a href="{{route('dashboard')}}">
                 Dashboard
             </a>
         </li>
-    </ul>
-
-
-    <ul class="menu-list" >
-        <form id="logout-form" action="{{ route('logout') }}" method="POST">
-            @csrf
-            <button type="submit" class="button is-warning">Logout</button>
-        </form>
+        <li>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                @csrf
+                <button type="submit" class="button is-warning">Logout</button>
+            </form>
+        </li>
     </ul>
 </aside>
