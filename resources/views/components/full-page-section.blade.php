@@ -1,4 +1,4 @@
-<section class="section hero is-fullheight">
+<section class="section hero">
     <div class="hero-body">
         <div class="container">
             <div class="columns is-centered">

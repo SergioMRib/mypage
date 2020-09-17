@@ -29,3 +29,7 @@ Auth::routes();
 
 Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
 Route::get('/demo', 'DashboardController@demo')->name('demo');
+
+Route::resource('admins', 'AdminController')->only([
+    'index'
+]);

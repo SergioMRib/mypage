@@ -7,7 +7,8 @@
         <li>
             <a @if ($current == "dashboard") class="is-active" @endif
                 href="{{route('dashboard')}}"
-            >Dashboard</a></li>
+            >Dashboard</a>
+        </li>
     </ul>
     <p class="menu-label">
         Administration
