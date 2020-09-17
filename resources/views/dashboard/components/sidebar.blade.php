@@ -22,7 +22,8 @@
             <a @if ($current =="articles") class="is-active" @endif>Articles</a>
         </li>
         <li>
-            <a @if ($current =="categories") class="is-active" @endif>Categories</a>
+            <a @if ($current =="categories") class="is-active" @endif
+                href="{{route('categories.index')}}">Categories</a>
         </li>
     </ul>
     <p class="menu-label">
