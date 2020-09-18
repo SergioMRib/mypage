@@ -3,7 +3,7 @@
 
 @section('content')
 
-    <p>This is the content newly created and deployed</p>
+    <p>This is the content</p>
     {{-- @component('components.full-page-section')
         @component('components.card')
             @slot('title')
