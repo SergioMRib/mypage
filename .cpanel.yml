@@ -1,5 +1,5 @@
 ---
 deployment:
  tasks:
- - export DEPLOYPATH=/home/sergiomr/public_html/_staging-homepage
+ - export DEPLOYPATH=/home/sergiomr/public_html/
  - /bin/cp -r * $DEPLOYPATH
