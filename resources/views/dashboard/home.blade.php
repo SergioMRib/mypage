@@ -3,7 +3,7 @@
 
 @section('content')
 
-    <p>This is the content deployed to staging</p>
+    <p>This is the content deployed to staging before production</p>
     {{-- @component('components.full-page-section')
         @component('components.card')
             @slot('title')
