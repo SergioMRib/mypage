@@ -39,4 +39,5 @@ Route::middleware('auth')->group( function () {
         'index'
     ]);
     Route::resource('categories', 'CategoryController');
+    Route::resource('tags', 'TagController')->except(['create', 'edit', 'show', 'update']);
 });

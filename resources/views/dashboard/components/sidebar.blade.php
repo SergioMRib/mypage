@@ -25,6 +25,10 @@
             <a @if ($current =="categories") class="is-active" @endif
                 href="{{route('categories.index')}}">Categories</a>
         </li>
+        <li>
+            <a @if ($current =="tags") class="is-active" @endif
+                href="{{route('tags.index')}}">Tags</a>
+        </li>
     </ul>
     <p class="menu-label">
         Navigation
