@@ -45,7 +45,7 @@ class CategoryController extends Controller
     {
         //dd($request);
         $request->validate([
-            'name' => 'required',
+            'name' => 'required|unique:categories',
         ]);
         $category = new Category();
         $category->name = $request->input('name');
