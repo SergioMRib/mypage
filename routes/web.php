@@ -35,9 +35,9 @@ Route::get('/demo', 'DashboardController@demo')->name('demo');
 ]); */
 
 Route::middleware('auth')->group( function () {
-    Route::resource('admins', 'AdminController')->only([
+    Route::resource('dashboard/admins', 'AdminController')->only([
         'index'
     ]);
-    Route::resource('categories', 'CategoryController');
-    Route::resource('tags', 'TagController')->except(['create', 'edit', 'show', 'update']);
+    Route::resource('dashboard/categories', 'CategoryController');
+    Route::resource('dashboard/tags', 'TagController')->except(['create', 'edit', 'show', 'update']);
 });
