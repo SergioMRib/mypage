@@ -3,7 +3,7 @@
 
 @section('content')
 
-    <p>This is now in staging</p>
+    <p>This is now in staging mode</p>
     {{-- @component('components.full-page-section')
         @component('components.card')
             @slot('title')
