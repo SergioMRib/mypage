@@ -16,7 +16,6 @@
         </div>
         <div class="form-group">
             <button type="submit" class="button is-primary">Register</button>
-            <a href="{{route('tags.index')}}" class="button is-warning">Cancel</a>
         </div>
         @if ($errors->any())
             <div class="is-danger">
