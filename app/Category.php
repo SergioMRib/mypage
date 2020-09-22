@@ -6,5 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Category extends Model
 {
-    //
+    /**
+     * The projects that belong to the category.
+     */
+    public function projects()
+    {
+        return $this->belongsToMany('App\Category', 'category_project');
+    }
 }

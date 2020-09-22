@@ -40,4 +40,5 @@ Route::middleware('auth')->group( function () {
     ]);
     Route::resource('dashboard/categories', 'CategoryController');
     Route::resource('dashboard/tags', 'TagController')->except(['create', 'edit', 'show', 'update']);
+    Route::resource('dashboard/projects', 'ProjectController');
 });

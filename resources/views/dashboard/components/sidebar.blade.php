@@ -19,7 +19,8 @@
                 href="{{route('admins.index')}}">Admins</a>
         </li>
         <li>
-            <a @if ($current =="articles") class="is-active" @endif>Articles</a>
+            <a @if ($current =="projects") class="is-active" @endif
+                href="{{route('projects.index')}}">Projects</a>
         </li>
         <li>
             <a @if ($current =="categories") class="is-active" @endif
