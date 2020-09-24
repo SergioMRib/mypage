@@ -3,7 +3,41 @@
 
 @section('content')
 
-    <p>This is now in staging</p>
+    <h3 class="is-title is-size-3">{{$current ?? ''}}</h3>
+
+    <div class="container">
+        You have {{count($projects)}} projects
+        @foreach ($projects as $p)
+            <div class="card">
+                <div class="card-header">{{$p->name}}</div>
+                <div class="card-body">
+                    This will have the description of the project.
+                    Also, this projects belongs to {{count($p->categories)}} categories.
+                </div>
+            </div>
+        @endforeach
+    </div>
+    <div class="container">
+        You have {{count($categories)}} categories
+        @foreach ($categories as $c)
+            <div class="card">
+                <div class="card-header">{{$c->name}}</div>
+                <div class="card-body">
+                    This will have the description of the category.
+                    Also, this category has {{count($c->projects)}} projects.
+                </div>
+            </div>
+        @endforeach
+    </div>
+    <div class="container">
+        You have {{count($tags)}} tags
+        @foreach ($tags as $t)
+            <div class="card">
+                <div class="card-header">{{$t->name}}
+                    with {{count($t->projects)}} project{{count($t->projects) === 1 ? '' : 's'}}.</div>
+            </div>
+        @endforeach
+    </div>
     {{-- @component('components.full-page-section')
         @component('components.card')
             @slot('title')

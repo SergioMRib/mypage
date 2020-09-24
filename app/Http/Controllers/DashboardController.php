@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Project;
+use App\Category;
+use App\Tag;
 
 class DashboardController extends Controller
 {
@@ -23,7 +26,12 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        return view('dashboard.home');
+        $current = "Home";
+        $projects = Project::with('categories')->get();
+        $categories = Category::with('projects')->get();
+        $tags = Tag::all();
+
+        return view('dashboard.home', compact('projects', 'categories', 'tags','current'));
     }
 
     public function demo() {
