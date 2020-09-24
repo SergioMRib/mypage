@@ -4,7 +4,6 @@
 @section('content')
 
     <h3 class="is-title is-size-3">{{$current ?? ''}}</h3>
-    <h3>This is the create page</h3>
 
     <form action="{{route('projects.store')}}" method="post">
         @csrf
@@ -27,7 +26,7 @@
             @foreach ($categories as $category)
                 <label for="{{$category->id}}">{{$category->name}}</label>
                 <input type="checkbox" id="{{$category->id}}" name="categories[]" value="{{$category->id}}">
-
+                |
             @endforeach
         </div>
         <div class="field">
@@ -35,7 +34,7 @@
             @foreach ($tags as $tag)
                 <label for="{{$tag->id}}">{{$tag->name}}</label>
                 <input type="checkbox" id="{{$tag->id}}" name="tags[]" value="{{$tag->id}}">
-
+                |
             @endforeach
         </div>
         <div class="field">

@@ -56,9 +56,16 @@ class ProjectController extends Controller
         $project = new Project();
         $project->name = $request->input('name');
         $project->description = $request->input('description');
-        $categories = $request->input('categories');
         $project->save();
+
+        //Link to categories
+        $categories = $request->input('categories');
         $project->categories()->sync($categories);
+
+        //Link to tags
+        $tags = $request->input('tags');
+        $project->tags()->sync($tags);
+
         //dd($project);
         return redirect(route('projects.index'));
     }

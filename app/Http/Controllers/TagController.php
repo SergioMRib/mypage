@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Tag;
+use App\Project;
 
 
 class TagController extends Controller
@@ -20,7 +21,7 @@ class TagController extends Controller
      */
     public function index()
     {
-        $tags = Tag::all();
+        $tags = Tag::with('projects')->get();
         $current = $this->current;
         return view('dashboard.tags.index', compact('tags', 'current'));
     }

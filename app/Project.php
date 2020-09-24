@@ -13,4 +13,8 @@ class Project extends Model
     {
         return $this->belongsToMany('App\Category', 'category_project');
     }
+    public function tags()
+    {
+        return $this->belongsToMany('App\Tag', 'tag_project');
+    }
 }

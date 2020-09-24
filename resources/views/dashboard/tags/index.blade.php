@@ -32,7 +32,7 @@
             <div class="card">
                 <div class="card-header">{{$tag->name}}</div>
                 <div class="card-content">
-                    <p>Nome: {{$tag->name}}</p>
+                    <p>Nome: {{$tag->name}} has {{count($tag->projects)}} project{{count($tag->projects) === 1 ? '' : 's'}}.</p>
                     <p>
                         <form action="{{route('tags.destroy', $tag->id)}}" method="post">
                             @csrf
