@@ -11,9 +11,13 @@
     @if (count($projects) > 0)
         @foreach ($projects as $project)
             <div class="card">
-                <div class="card-header">{{$project->name}}</div>
+                <div class="card-header">{{$project->name}} || id: {{$project->id}}</div>
                 <div class="card-content">
                     <p>Nome: {{$project->name}}</p>
+                    <p>Descrição:</p>
+                    <p>
+                        {!! nl2br(e($project->description ?? 'No description')) !!}
+                    </p>
                     <p>
                         Related categories:
                         @foreach ($project->categories as $cat)
@@ -23,13 +27,13 @@
                         @endforeach
                     </p>
                     <p>
-                        {{-- <form action="{{route('project.destroy', $project->id)}}" method="post">
+                        <form action="{{route('projects.destroy', $project->id)}}" method="post">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="button">
                                 <i class="fas fa-trash"></i>
                             </button>
-                        </form> --}}
+                        </form>
                     </p>
                 </div>
             </div>

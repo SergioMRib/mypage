@@ -48,7 +48,19 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //dd($request);
+        $request->validate([
+            'name' => 'required|unique:projects',
+            'categories' => 'required',
+        ]);
+        $project = new Project();
+        $project->name = $request->input('name');
+        $project->description = $request->input('description');
+        $categories = $request->input('categories');
+        $project->save();
+        $project->categories()->sync($categories);
+        //dd($project);
+        return redirect(route('projects.index'));
     }
 
     /**
@@ -95,6 +107,10 @@ class ProjectController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $project = Project::find($id);
+        if (isset($project)) {
+            $project->delete();
+        }
+        return redirect(route('projects.index'));
     }
 }
