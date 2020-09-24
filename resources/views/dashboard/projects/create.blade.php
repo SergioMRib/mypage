@@ -47,12 +47,20 @@
         <div class="field">
             <label for="">Add link</label>
                 <input type="text" class="input"
-                    name="" id=""
-                    placeholder=""
+                    name="link" id="link"
+                    placeholder="Add link"
+                    >
+        </div>
+        <div class="field">
+            <label for="">Add Github link</label>
+                <input type="text" class="input"
+                    name="githublink" id="githublink"
+                    placeholder="Add github link"
                     >
         </div>
         <div class="form-group">
             <button type="submit" class="button is-primary">Register</button>
+            <a href="{{route('projects.index')}}" class="button is-warning">Cancel</a>
         </div>
         @if ($errors->any())
             <div class="is-danger">

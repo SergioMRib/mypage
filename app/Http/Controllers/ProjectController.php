@@ -56,6 +56,8 @@ class ProjectController extends Controller
         $project = new Project();
         $project->name = $request->input('name');
         $project->description = $request->input('description');
+        $project->link = $request->input('link');
+        $project->githublink = $request->input('githublink');
         $project->save();
 
         //Link to categories

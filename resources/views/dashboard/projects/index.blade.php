@@ -26,6 +26,13 @@
                             </p>
                         @endforeach
                     </p>
+                    @if (isset($project->link) || isset($project->githublink))
+                        <p>
+                            <a href="{{$project->link ?? ''}}">{{$project->link ?? ''}}</a> |
+                            <a href="{{$project->githublink ?? ''}}">{{$project->githublink ?? ''}}</a>
+                        </p>
+                    @endif
+
                     <p>
                         <form action="{{route('projects.destroy', $project->id)}}" method="post">
                             @csrf
