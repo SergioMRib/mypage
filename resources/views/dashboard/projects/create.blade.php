@@ -5,8 +5,10 @@
 
     <h3 class="is-title is-size-3">{{$current ?? ''}}</h3>
 
-    <form action="{{route('projects.store')}}" method="post">
+    <form action="{{route('projects.store')}}" method="post" enctype="multipart/form-data">
         @csrf
+
+        {{-- The title --}}
         <div class="field">
             <label for="name">Add title</label>
             <input type="text" class="input"
@@ -14,6 +16,8 @@
                 placeholder="Name"
                 >
         </div>
+
+        {{-- The description --}}
         <div class="field">
             <label for="description">Add description</label>
             <textarea type="text" class="input"
@@ -21,6 +25,8 @@
                 placeholder="Description" style="white-space: pre-line; white-space: pre-wrap; "
                 ></textarea>
         </div>
+
+        {{-- The categories --}}
         <div class="field">
             {{-- <label for="categories">Add categories</label> --}}
             @foreach ($categories as $category)
@@ -29,6 +35,8 @@
                 |
             @endforeach
         </div>
+
+        {{-- The tags --}}
         <div class="field">
             {{-- <label for="tags">Add tags</label> --}}
             @foreach ($tags as $tag)
@@ -37,13 +45,18 @@
                 |
             @endforeach
         </div>
+
+
+        {{-- The Image form field --}}
         <div class="field">
-            <label for="">Add image</label>
-                <input type="text" class="input"
-                    name="" id=""
-                    placeholder=""
+            <label for="image">Add image</label>
+                <input type="file" class="input"
+                    name="image[]" id="image"
                     >
         </div>
+
+
+        {{-- The link --}}
         <div class="field">
             <label for="">Add link</label>
                 <input type="text" class="input"
@@ -51,6 +64,8 @@
                     placeholder="Add link"
                     >
         </div>
+
+        {{-- The github link --}}
         <div class="field">
             <label for="">Add Github link</label>
                 <input type="text" class="input"
@@ -58,10 +73,14 @@
                     placeholder="Add github link"
                     >
         </div>
+
+        {{-- Final action buttons --}}
         <div class="form-group">
             <button type="submit" class="button is-primary">Register</button>
             <a href="{{route('projects.index')}}" class="button is-warning">Cancel</a>
         </div>
+
+        {{-- Errors --}}
         @if ($errors->any())
             <div class="is-danger">
                 <ul>

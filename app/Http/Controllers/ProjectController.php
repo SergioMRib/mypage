@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+
 use App\Project;
 use App\Category;
 use App\Tag;
@@ -51,22 +53,24 @@ class ProjectController extends Controller
         //dd($request);
         $request->validate([
             'name' => 'required|unique:projects',
-            'categories' => 'required',
+            'categories' => 'required'
         ]);
+        $path = $request->file('image')->store('images', 'public');
         $project = new Project();
         $project->name = $request->input('name');
         $project->description = $request->input('description');
+        $project->image = $path;
         $project->link = $request->input('link');
         $project->githublink = $request->input('githublink');
         $project->save();
 
         //Link to categories
-        $categories = $request->input('categories');
-        $project->categories()->sync($categories);
+        //$categories = $request->input('categories');
+        //$project->categories()->sync($categories);
 
         //Link to tags
-        $tags = $request->input('tags');
-        $project->tags()->sync($tags);
+        //$tags = $request->input('tags');
+        //$project->tags()->sync($tags);
 
         //dd($project);
         return redirect(route('projects.index'));
@@ -81,7 +85,12 @@ class ProjectController extends Controller
     public function show($id)
     {
         $current = $this->current;
-        return view('dashboard.projects.show', compact('', 'current'));
+        $project = Project::find($id);
+        if (isset($project)) {
+            return view('dashboard.projects.show', compact('project', 'current'));
+        } else {
+            return view('projects.index');
+        }
     }
 
     /**
@@ -93,7 +102,14 @@ class ProjectController extends Controller
     public function edit($id)
     {
         $current = $this->current;
-        //return view('dashboard.projects.edit', compact('', 'current'));
+        $project = Project::find($id);
+        if (isset($project)) {
+            $categories = Category::all();
+            $tags = Tag::all();
+            return view('dashboard.projects.edit', compact('project', 'current', 'categories', 'tags'));
+        } else {
+            return view('projects.index');
+        }
     }
 
     /**
@@ -105,7 +121,32 @@ class ProjectController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'categories' => 'required',
+        ]);
+        //$path = $request->file('image')->store('images', 'public');
+        $project = Project::find($id);
+
+        if (isset($project)) {
+            $project->name = $request->input('name');
+            $project->description = $request->input('description');
+            //$project->image = $path;
+            $project->link = $request->input('link');
+            $project->githublink = $request->input('githublink');
+            $project->save();
+        }
+
+        //Link to categories
+        //$categories = $request->input('categories');
+        //$project->categories()->sync($categories);
+
+        //Link to tags
+        //$tags = $request->input('tags');
+        //$project->tags()->sync($tags);
+
+        //dd($project);
+        return redirect(route('projects.index'));
     }
 
     /**
@@ -118,6 +159,7 @@ class ProjectController extends Controller
     {
         $project = Project::find($id);
         if (isset($project)) {
+            Storage::disk('public')->delete($project->image);
             $project->delete();
         }
         return redirect(route('projects.index'));
