@@ -51,7 +51,7 @@
         <div class="field">
             <label for="image">Add image</label>
                 <input type="file" class="input"
-                    name="image[]" id="image"
+                    name="image" id="image"
                     >
         </div>
 

@@ -42,5 +42,6 @@
 
             </section>
         </div>
+        <script src="lazysizes.min.js" async=""></script>
 </body>
 </html>

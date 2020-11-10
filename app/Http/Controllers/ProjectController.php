@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Intervention\Image\Facades\Image;
 
 use App\Project;
 use App\Category;
@@ -53,15 +54,39 @@ class ProjectController extends Controller
         //dd($request);
         $request->validate([
             'name' => 'required|unique:projects',
-            'categories' => 'required'
+            'categories' => 'required',
+            'image' => 'required'
         ]);
-        $path = $request->file('image')->store('images', 'public');
+
+        // storage folders for images
+        $original_photo_storage = public_path('storage/original_photos/');
+        $large_photos_storage = public_path('storage/large_photos/');
+        $medium_photos_storage = public_path('storage/medium_photos/');
+        $mobile_photos_storage = public_path('storage/mobile_photos/');
+        $tiny_photos_storage = public_path('storage/tiny_photos/');
+
+        //$path = $request->file('image')->store('images', 'public');
+        $file = $request->file('image');
         $project = new Project();
         $project->name = $request->input('name');
         $project->description = $request->input('description');
-        $project->image = $path;
+        //$project->image = $path;
+        $project->image = $file->hashName();
         $project->link = $request->input('link');
         $project->githublink = $request->input('githublink');
+
+
+        $image = Image::make($file->getRealPath());
+        $image->save($original_photo_storage.$file->hashName(),100)->resize(860, null, function ($constraint) {
+            $constraint->aspectRatio();
+        })->save($large_photos_storage.$file->hashName(),85)->resize(640, null, function ($constraint) {
+            $constraint->aspectRatio();
+        })->save($medium_photos_storage.$file->hashName(),85)->resize(420, null, function ($constraint) {
+            $constraint->aspectRatio();
+        })->save($mobile_photos_storage.$file->hashName(),85)->resize(10, null, function ($constraint) {
+            $constraint->aspectRatio();
+        })->blur(1)->save($tiny_photos_storage.$file->hashName(),85);
+
         $project->save();
 
         //Link to categories
