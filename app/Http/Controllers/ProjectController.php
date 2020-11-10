@@ -184,7 +184,11 @@ class ProjectController extends Controller
     {
         $project = Project::find($id);
         if (isset($project)) {
-            Storage::disk('public')->delete($project->image);
+            Storage::disk('public')->delete('original_photos/'.$project->image);
+            Storage::disk('public')->delete('large_photos/'.$project->image);
+            Storage::disk('public')->delete('medium_photos/'.$project->image);
+            Storage::disk('public')->delete('mobile_photos/'.$project->image);
+            Storage::disk('public')->delete('tiny_photos/'.$project->image);
             $project->delete();
         }
         return redirect(route('projects.index'));
