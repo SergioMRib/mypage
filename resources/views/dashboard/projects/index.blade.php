@@ -14,24 +14,31 @@
                 <div class="card-header">{{$project->name}} || id: {{$project->id}}</div>
                 <div class="card-content">
                     <p>Nome: {{$project->name}}</p>
+                    <a href="{{route('projects.show', $project->id)}}" class="button">
+                        <i class="fas fa-search"></i>
+                    </a>
+                    <a href="{{route('projects.edit', $project->id)}}" class="button">
+                        <i class="fas fa-edit"></i>
+                    </a>
                     <p>Descrição:</p>
                     <p>
                         {!! nl2br(e($project->description ?? 'No description')) !!}
                     </p>
-                    <p>
+                    {{-- <p>
+                        <img src="/storage/{{$project->image}}" alt="{{$project->name}} image">
                         Related categories:
                         @foreach ($project->categories as $cat)
                             <p>
                                 {{$cat->name}}
                             </p>
                         @endforeach
-                    </p>
-                    @if (isset($project->link) || isset($project->githublink))
+                    </p> --}}
+                    {{-- @if (isset($project->link) || isset($project->githublink))
                         <p>
                             <a href="{{$project->link ?? ''}}">{{$project->link ?? ''}}</a> |
                             <a href="{{$project->githublink ?? ''}}">{{$project->githublink ?? ''}}</a>
                         </p>
-                    @endif
+                    @endif --}}
 
                     <p>
                         <form action="{{route('projects.destroy', $project->id)}}" method="post">

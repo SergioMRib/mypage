@@ -11,7 +11,7 @@
             <div class="card">
                 <div class="card-header">{{$p->name}}</div>
                 <div class="card-body">
-                    This will have the description of the project.
+                    {{$p->description}}.
                     Also, this projects belongs to {{count($p->categories)}} categories.
                 </div>
             </div>
@@ -23,7 +23,7 @@
             <div class="card">
                 <div class="card-header">{{$c->name}}</div>
                 <div class="card-body">
-                    This will have the description of the category.
+                    {{$c->description}}.
                     Also, this category has {{count($c->projects)}} projects.
                 </div>
             </div>
