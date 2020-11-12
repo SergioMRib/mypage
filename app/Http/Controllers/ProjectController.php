@@ -15,6 +15,14 @@ class ProjectController extends Controller
 
     public function __construct() {
         $this->current = "Projects";
+        $this->storage_paths = [
+            900=>'original_photos/',
+            860=>'large_photos/',
+            640=>'medium_photos/',
+            420=>'mobile_photos/',
+            10=>'tiny_photos/'
+        ];
+
     }
 
     /**
@@ -58,13 +66,6 @@ class ProjectController extends Controller
             'image' => 'required'
         ]);
 
-        // storage folders for images
-        $original_photo_storage = public_path('storage/original_photos/');
-        $large_photos_storage = public_path('storage/large_photos/');
-        $medium_photos_storage = public_path('storage/medium_photos/');
-        $mobile_photos_storage = public_path('storage/mobile_photos/');
-        $tiny_photos_storage = public_path('storage/tiny_photos/');
-
         //$path = $request->file('image')->store('images', 'public');
         $file = $request->file('image');
         $project = new Project();
@@ -75,18 +76,14 @@ class ProjectController extends Controller
         $project->link = $request->input('link');
         $project->githublink = $request->input('githublink');
 
-
+        // store images using intervention package
         $image = Image::make($file->getRealPath());
-        $image->save($original_photo_storage.$file->hashName(),100)->resize(860, null, function ($constraint) {
-            $constraint->aspectRatio();
-        })->save($large_photos_storage.$file->hashName(),85)->resize(640, null, function ($constraint) {
-            $constraint->aspectRatio();
-        })->save($medium_photos_storage.$file->hashName(),85)->resize(420, null, function ($constraint) {
-            $constraint->aspectRatio();
-        })->save($mobile_photos_storage.$file->hashName(),85)->resize(10, null, function ($constraint) {
-            $constraint->aspectRatio();
-        })->blur(1)->save($tiny_photos_storage.$file->hashName(),85);
 
+        foreach ($this->storage_paths as $size => $storage) {
+            $image->resize($size, null, function ($constraint) {
+                $constraint->aspectRatio();
+            })->save('storage/'.$storage.$file->hashName(),85);
+        }
         $project->save();
 
         //Link to categories
@@ -159,6 +156,21 @@ class ProjectController extends Controller
             //$project->image = $path;
             $project->link = $request->input('link');
             $project->githublink = $request->input('githublink');
+
+            // store images only if new image is uploaded; using intervention package
+            // Checks for a new image upload
+            // saves the image with the same name as the previous image (to handle deletion)
+            if ($request->hasFile('image')) {
+                $newImage = $request->file('image');
+                $image = Image::make($newImage);
+
+                foreach ($this->storage_paths as $size => $storage) {
+                    $image->resize($size, null, function ($constraint) {
+                        $constraint->aspectRatio();
+                    })->save('storage/'.$storage.$project->image,85);
+                }
+            }
+
             $project->save();
         }
 
@@ -183,14 +195,12 @@ class ProjectController extends Controller
     public function destroy($id)
     {
         $project = Project::find($id);
-        if (isset($project)) {
-            Storage::disk('public')->delete('original_photos/'.$project->image);
-            Storage::disk('public')->delete('large_photos/'.$project->image);
-            Storage::disk('public')->delete('medium_photos/'.$project->image);
-            Storage::disk('public')->delete('mobile_photos/'.$project->image);
-            Storage::disk('public')->delete('tiny_photos/'.$project->image);
+        /* if (isset($project)) {
+            foreach ($this->storage_paths as $storage) {
+                Storage::disk('public')->delete($storage.$project->image);
+            }
             $project->delete();
-        }
+        } */
         return redirect(route('projects.index'));
     }
 }

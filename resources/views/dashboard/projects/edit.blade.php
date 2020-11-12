@@ -40,10 +40,13 @@
             @endforeach --}}
         </div>
         <div class="field">
-            <label for="image">Add image</label>
+            <p>
+                Current image
+                <img src="{{asset('storage/mobile_photos/'.$project->image)}}">
+            </p>
+            <label for="image">New image</label>
                 <input type="file" class="input"
                     name="image" id="image"
-                    value="{{$project->image}}"
                     >
         </div>
         <div class="field">
