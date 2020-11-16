@@ -22,7 +22,6 @@ class ProjectController extends Controller
             420=>'mobile_photos/',
             10=>'tiny_photos/'
         ];
-
     }
 
     /**
@@ -63,7 +62,7 @@ class ProjectController extends Controller
         $request->validate([
             'name' => 'required|unique:projects',
             'categories' => 'required',
-            'image' => 'required'
+            'image' => 'required|image|max:30000'
         ]);
 
         //$path = $request->file('image')->store('images', 'public');
@@ -195,12 +194,12 @@ class ProjectController extends Controller
     public function destroy($id)
     {
         $project = Project::find($id);
-        /* if (isset($project)) {
+        if (isset($project)) {
             foreach ($this->storage_paths as $storage) {
                 Storage::disk('public')->delete($storage.$project->image);
             }
             $project->delete();
-        } */
+        }
         return redirect(route('projects.index'));
     }
 }
