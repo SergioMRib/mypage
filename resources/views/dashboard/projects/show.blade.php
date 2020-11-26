@@ -13,7 +13,13 @@
                 {!! nl2br(e($project->description ?? 'No description')) !!}
             </p>
             <p>
-                <img src="/storage/{{$project->image}}" alt="{{$project->name}} image">
+                {{-- <img src="/storage/original_photos/{{$project->image}}" alt="{{$project->name}} image">
+ --}}
+                <img src="{{asset('storage/large_photos/'.$project->image)}}"
+                srcset="{{asset('storage/large_photos/'.$project->image.' 860w')}},
+                {{asset('storage/medium_photos/'.$project->image.' 640w')}},
+                {{asset('storage/mobile_photos/'.$project->image.' 420w')}}">
+
                 Related categories:
                 @foreach ($project->categories as $cat)
                     <p>

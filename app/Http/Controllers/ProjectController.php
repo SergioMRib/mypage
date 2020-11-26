@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Intervention\Image\Facades\Image;
 
 use App\Project;
 use App\Category;
@@ -14,6 +15,13 @@ class ProjectController extends Controller
 
     public function __construct() {
         $this->current = "Projects";
+        $this->storage_paths = [
+            900=>'original_photos/',
+            860=>'large_photos/',
+            640=>'medium_photos/',
+            420=>'mobile_photos/',
+            10=>'tiny_photos/'
+        ];
     }
 
     /**
@@ -53,15 +61,28 @@ class ProjectController extends Controller
         //dd($request);
         $request->validate([
             'name' => 'required|unique:projects',
-            'categories' => 'required'
+            'categories' => 'required',
+            'image' => 'required|image|max:30000'
         ]);
-        $path = $request->file('image')->store('images', 'public');
+
+        //$path = $request->file('image')->store('images', 'public');
+        $file = $request->file('image');
         $project = new Project();
         $project->name = $request->input('name');
         $project->description = $request->input('description');
-        $project->image = $path;
+        //$project->image = $path;
+        $project->image = $file->hashName();
         $project->link = $request->input('link');
         $project->githublink = $request->input('githublink');
+
+        // store images using intervention package
+        $image = Image::make($file->getRealPath());
+
+        foreach ($this->storage_paths as $size => $storage) {
+            $image->resize($size, null, function ($constraint) {
+                $constraint->aspectRatio();
+            })->save('storage/'.$storage.$file->hashName(),85);
+        }
         $project->save();
 
         //Link to categories
@@ -134,6 +155,21 @@ class ProjectController extends Controller
             //$project->image = $path;
             $project->link = $request->input('link');
             $project->githublink = $request->input('githublink');
+
+            // store images only if new image is uploaded; using intervention package
+            // Checks for a new image upload
+            // saves the image with the same name as the previous image (to handle deletion)
+            if ($request->hasFile('image')) {
+                $newImage = $request->file('image');
+                $image = Image::make($newImage);
+
+                foreach ($this->storage_paths as $size => $storage) {
+                    $image->resize($size, null, function ($constraint) {
+                        $constraint->aspectRatio();
+                    })->save('storage/'.$storage.$project->image,85);
+                }
+            }
+
             $project->save();
         }
 
@@ -159,7 +195,9 @@ class ProjectController extends Controller
     {
         $project = Project::find($id);
         if (isset($project)) {
-            Storage::disk('public')->delete($project->image);
+            foreach ($this->storage_paths as $storage) {
+                Storage::disk('public')->delete($storage.$project->image);
+            }
             $project->delete();
         }
         return redirect(route('projects.index'));
