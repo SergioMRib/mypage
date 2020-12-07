@@ -13,6 +13,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
+/* 
+    These are the public routes
+*/
+
 Route::get('/', function () {
     return view('index');
 });
@@ -21,19 +26,23 @@ Route::get('/contact-me', function () {
     return view('indevelopment');
 })->name('contact-me');
 
+Route::get('/projects/{category}', 'PublicProjectsController@index')->name('projects');
 
 
+/* 
+    Enable routes for authentication
+    Registration is protected and can only happen when already logged in. 
+*/
 Auth::routes();
 
-//Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
 Route::get('/demo', 'DashboardController@demo')->name('demo');
 
-/* Route::resource('admins', 'AdminController')->only([
-    'index'
-]); */
-
+/* 
+    Routes for administrative actions
+    Only for authenticated users
+*/
 Route::middleware('auth')->group( function () {
     Route::resource('dashboard/admins', 'AdminController')->only([
         'index'

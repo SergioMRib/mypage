@@ -86,12 +86,12 @@ class ProjectController extends Controller
         $project->save();
 
         //Link to categories
-        //$categories = $request->input('categories');
-        //$project->categories()->sync($categories);
+        $categories = $request->input('categories');
+        $project->categories()->sync($categories);
 
         //Link to tags
-        //$tags = $request->input('tags');
-        //$project->tags()->sync($tags);
+        $tags = $request->input('tags');
+        $project->tags()->sync($tags);
 
         //dd($project);
         return redirect(route('projects.index'));

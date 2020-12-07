@@ -24,7 +24,7 @@
                     <p>
                         {!! nl2br(e($project->description ?? 'No description')) !!}
                     </p>
-                    {{-- <p>
+                    <p>
                         <img src="/storage/{{$project->image}}" alt="{{$project->name}} image">
                         Related categories:
                         @foreach ($project->categories as $cat)
@@ -32,7 +32,7 @@
                                 {{$cat->name}}
                             </p>
                         @endforeach
-                    </p> --}}
+                    </p>
                     {{-- @if (isset($project->link) || isset($project->githublink))
                         <p>
                             <a href="{{$project->link ?? ''}}">{{$project->link ?? ''}}</a> |

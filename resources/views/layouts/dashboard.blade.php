@@ -31,7 +31,7 @@
         <div class="section columns">
 
             <section class="column is-narrow">
-                @component('dashboard.components.sidebar', ["current" => $current])
+                @component('dashboard.components.sidebar', ["current" => $current ?? ''])
 
                 @endcomponent
             </section>
