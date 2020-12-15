@@ -11,21 +11,9 @@
     @if (count($projects) > 0)
         @foreach ($projects as $project)
             <div class="card">
-                <div class="card-header">{{$project->name}} || id: {{$project->id}}</div>
+                <div class="card-header">id: {{$project->id}} || {{$project->name}} </div>
                 <div class="card-content">
-                    <p>Nome: {{$project->name}}</p>
-                    <a href="{{route('projects.show', $project->id)}}" class="button">
-                        <i class="fas fa-search"></i>
-                    </a>
-                    <a href="{{route('projects.edit', $project->id)}}" class="button">
-                        <i class="fas fa-edit"></i>
-                    </a>
-                    <p>Descrição:</p>
                     <p>
-                        {!! nl2br(e($project->description ?? 'No description')) !!}
-                    </p>
-                    <p>
-                        <img src="/storage/{{$project->image}}" alt="{{$project->name}} image">
                         Related categories:
                         @foreach ($project->categories as $cat)
                             <p>
@@ -33,14 +21,13 @@
                             </p>
                         @endforeach
                     </p>
-                    {{-- @if (isset($project->link) || isset($project->githublink))
-                        <p>
-                            <a href="{{$project->link ?? ''}}">{{$project->link ?? ''}}</a> |
-                            <a href="{{$project->githublink ?? ''}}">{{$project->githublink ?? ''}}</a>
-                        </p>
-                    @endif --}}
-
                     <p>
+                        <a href="{{route('projects.show', $project->id)}}" class="button">
+                            <i class="fas fa-search"></i>
+                        </a>
+                        <a href="{{route('projects.edit', $project->id)}}" class="button">
+                            <i class="fas fa-edit"></i>
+                        </a>
                         <form action="{{route('projects.destroy', $project->id)}}" method="post">
                             @csrf
                             @method('DELETE')
