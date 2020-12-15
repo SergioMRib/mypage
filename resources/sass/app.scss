@@ -1,7 +1,7 @@
 //Bulma
 
 // Set theme colors:
-
+$transparent-dark-green: #000000b0;
 $dark-green: #0E190B;
 $dimmed-green: #2A3F1A;
 $gray-green: #505D35;
@@ -9,10 +9,13 @@ $light-green: #86A041;
 $strong-green: #5A831D;
 $beige: #C1CF69;
 $light-beige: #f0f3d9;
+
+$dark-blue: #080814;
+$dark-grey: #14141c;
 $red: #dd0505;
 $background: $dimmed-green;
 
-$scheme-main: $dimmed-green;
+$scheme-main: $transparent-dark-green;
 $scheme-invert: $light-beige;
 // update global variables
 
@@ -26,7 +29,7 @@ $dark: $dark-green;
 
 $text: $beige;
 $text-light: $light-green;
-$text-strong: $strong-green;
+$text-strong: $light-beige;
 
 $title-color: $light-beige;
 $subtitle-color: $light-green;

@@ -11,7 +11,7 @@ background-image: image-set(
     background-repeat:  no-repeat;
     background-attachment: fixed;
     background-size:  cover;
-    background-color: #999;
+    background-color: #000;
 }
 
 html {

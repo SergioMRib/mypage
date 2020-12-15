@@ -19,15 +19,12 @@ class PublicProjectsController extends Controller
      */
     public function index($category)
     {
-        //$data = "Hello";
-        //$cat = $category;
-        $cat = "Web dev";
-        $data = Project::whereHas('categories', function($query) use($category) {
+        
+        $projects = Project::whereHas('categories', function($query) use($category) {
             $query->where('name', $category);
         })->get();
 
-        //$data = Project::with('categories')->get();
-        //$categories = Category::with('projects')->get();
-        return view('projects', compact('data'));
+        
+        return view('projects', compact('projects', 'category'));
     }
 }
