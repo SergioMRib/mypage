@@ -20,6 +20,7 @@ class ProjectController extends Controller
             860=>'large_photos/',
             640=>'medium_photos/',
             420=>'mobile_photos/',
+            80=>'icon_photos/',
             10=>'tiny_photos/'
         ];
     }
@@ -62,27 +63,29 @@ class ProjectController extends Controller
         $request->validate([
             'name' => 'required|unique:projects',
             'categories' => 'required',
-            'image' => 'required|image|max:30000'
+            'image' => 'required|image|max:8000'
         ]);
 
-        //$path = $request->file('image')->store('images', 'public');
-        $file = $request->file('image');
         $project = new Project();
         $project->name = $request->input('name');
         $project->description = $request->input('description');
-        //$project->image = $path;
-        $project->image = $file->hashName();
         $project->link = $request->input('link');
         $project->githublink = $request->input('githublink');
 
-        // store images using intervention package
+        //Store images using intervention package
+        $file = $request->file('image');
+        $project->image = $file->hashName();
         $image = Image::make($file->getRealPath());
 
+            
         foreach ($this->storage_paths as $size => $storage) {
+            //Loop through all image folders and save a copy
             $image->resize($size, null, function ($constraint) {
                 $constraint->aspectRatio();
             })->save('storage/'.$storage.$file->hashName(),85);
         }
+
+        //Save project
         $project->save();
 
         //Link to categories
