@@ -2,9 +2,19 @@
 
 <div class="social-icons is-transparent">
     <div class="grid">
-        <p class="float-appeal is-size-3 natural-font">Contact me</p>
+        @if ($current === 'index')
+            <p class="float-appeal is-size-3 natural-font">Contact me</p>
+            
+        @else
+            <a href="/">
+                <span class="icon">
+                    <i class="fas fa-home fa-2x"></i>
+                </span>
+            </a>
+        @endif
+        
 
-        <a class="social-icon" href="{{route('contact-me')}}" target="_blank" rel="noopener noreferrer">
+        <a class="social-icon" href="{{route('contact-me')}}">
             <span class="icon">
                 <i class="fas fa-at fa-2x"></i>
             </span>
