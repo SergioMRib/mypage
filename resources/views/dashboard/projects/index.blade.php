@@ -21,21 +21,23 @@
                             </p>
                         @endforeach
                     </p>
-                    <p>
+                    <div class="card-footer">
+                        <p>
                         <a href="{{route('projects.show', $project->id)}}" class="button">
                             <i class="fas fa-search"></i>
                         </a>
                         <a href="{{route('projects.edit', $project->id)}}" class="button">
                             <i class="fas fa-edit"></i>
                         </a>
-                        <form action="{{route('projects.destroy', $project->id)}}" method="post">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="button">
-                                <i class="fas fa-trash"></i>
-                            </button>
-                        </form>
-                    </p>
+                            <form action="{{route('projects.destroy', $project->id)}}" method="post" style="display: inline-block;">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="button">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </form>
+                        </p>
+                    </div>
                 </div>
             </div>
         @endforeach
