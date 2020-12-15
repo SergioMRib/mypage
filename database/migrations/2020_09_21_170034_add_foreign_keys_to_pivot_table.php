@@ -26,7 +26,7 @@ class AddForeignKeysToPivotTable extends Migration
      */
     public function down()
     {
-        Schema::table('pivot', function (Blueprint $table) {
+        Schema::table('category_project', function (Blueprint $table) {
             $table->dropForeign('category_id');
             $table->dropForeign('project_id');
         });
