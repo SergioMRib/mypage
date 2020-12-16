@@ -8,7 +8,7 @@
                 @if (count($projects) > 0)
                     <div class="columns is-multiline is-centered"> 
                         @foreach ($projects as $project)
-                            <div class="column is-half-desktop is-one-third-widescreen">
+                            <div class="column is-half-tablet is-one-third-widescreen">
                                 <div class="card">
                                     <div class="card-header">
                                         <div class="card-header-icon"><img src="{{asset('storage/icon_photos/'.$project->image)}}" alt="Project icon"></div>

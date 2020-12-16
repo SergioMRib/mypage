@@ -11,12 +11,12 @@
                         Sérgio Ribeiro
                     </h1>
                     <h4 class="subtitle is-4 has-text-right">
-                        <a href="{{ route('projects', 'Environmental Consultancy') }}">
+                        <a href="{{ route('projects', 'Environmental consulting') }}">
                             <i class="fab fa-pagelines"></i>
                             Environmental Consulting
                         </a>
                         <br>
-                        <a href="{{ route('projects', 'Web dev') }}">
+                        <a href="{{ route('projects', 'Web Development') }}">
                             <i class="fas fa-laptop-code"></i>
                             Web Development
                         </a>
