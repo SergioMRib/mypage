@@ -10,30 +10,29 @@
     </a>
 
     @if (count($categories) > 0)
-        @foreach ($categories as $category)
-            <div class="card">
-                <div class="card-header">{{$category->name}}</div>
-                <div class="card-content">
-                    <p>Nome: {{$category->name}}</p>
-                    <p>
-                        Descrição: {{$category->description}}
-                    </p>
-                    <p>
-                        <a href="{{route('categories.edit', $category->id)}}" class="button">
-                            <i class="fas fa-edit"></i>
-                        </a>
-                        <form action="{{route('categories.destroy', $category->id)}}" method="post">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="button">
-                                <i class="fas fa-trash"></i>
-                            </button>
-                        </form>
+        <div class="grid-dashboard grid-categories">
+            @foreach ($categories as $category)
+                    <div class="box">
+                        <p class="title is-6">{{$category->name}}</p>
+                        <p class="">
+                            {{$category->description}}
+                        </p>
+                        <div class="">
+                            <a href="{{route('categories.edit', $category->id)}}" class="button">
+                                <i class="fas fa-edit"></i>
+                            </a>
+                            <form action="{{route('categories.destroy', $category->id)}}" method="post" style="display: inline-block;">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="button">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </form>
 
-                    </p>
-                </div>
-            </div>
-        @endforeach
+                        </div>
+                    </div>
+            @endforeach
+        </div>
     @else
         <p>Não existem categorias</p>
     @endif

@@ -9,38 +9,52 @@
     </a>
 
     @if (count($projects) > 0)
+    <div class="grid-dashboard grid-projects">
         @foreach ($projects as $project)
-            <div class="card">
-                <div class="card-header">id: {{$project->id}} || {{$project->name}} </div>
-                <div class="card-content">
-                    <p>
-                        Related categories:
-                        @foreach ($project->categories as $cat)
-                            <p>
-                                {{$cat->name}}
-                            </p>
-                        @endforeach
-                    </p>
-                    <div class="card-footer">
+            <div class="box">
+                <h6 class="title is-6">id: {{$project->id}} || {{$project->name}} </h6>
+                <div class="">
+                    <div >
+                        <p >
+                            Related categories:
+                            @foreach ($project->categories as $cat)
+                                <span class="text-light">
+                                    {{$cat->name}}
+                                </span>
+                            @endforeach
+                        </p>
                         <p>
-                        <a href="{{route('projects.show', $project->id)}}" class="button">
+                            Tags: 
+                            @foreach ($project->tags as $tag)
+                            <span>
+                                {{$tag->name}} *
+                            </span>
+                        @endforeach
+                        </p>
+                        
+                    </div>
+                    <div class="">
+                        <a href="{{route('projects.show', $project->id)}}" class="button is-info is-outlined is-small">
                             <i class="fas fa-search"></i>
                         </a>
-                        <a href="{{route('projects.edit', $project->id)}}" class="button">
+                        <a href="{{route('projects.edit', $project->id)}}" class="button is-primary is-outlined is-small">
                             <i class="fas fa-edit"></i>
                         </a>
-                            <form action="{{route('projects.destroy', $project->id)}}" method="post" style="display: inline-block;">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="button">
-                                    <i class="fas fa-trash"></i>
-                                </button>
-                            </form>
-                        </p>
+                        <form action="{{route('projects.destroy', $project->id)}}" 
+                            method="post" style="display: inline-block;">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="button is-warning is-outlined is-small" 
+                                style="display: inline-block;">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </form>
                     </div>
                 </div>
             </div>
         @endforeach
+    </div>
+        
     @else
         <p>No projects found</p>
     @endif

@@ -5,7 +5,7 @@
 
     <h3 class="is-title is-size-3">{{$current ?? ''}}</h3>
 
-    <form action="{{route('tags.store')}}" method="post">
+    <form action="{{route('tags.store')}}" method="post" class="block">
         @csrf
         <div class="field">
             <label for="name">Add tag</label>
@@ -28,27 +28,29 @@
         @endif
     </form>
     @if (count($tags) > 0)
-        @foreach ($tags as $tag)
-            <div class="card">
-                <div class="card-header">{{$tag->name}}</div>
-                <div class="card-content">
-                    <p>Nome: {{$tag->name}} has {{count($tag->projects)}} project{{count($tag->projects) === 1 ? '' : 's'}}.</p>
-                    <p>
-                        <form action="{{route('tags.destroy', $tag->id)}}" method="post">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="button">
-                                <i class="fas fa-trash"></i>
-                            </button>
-                        </form>
+        <div class="grid-dashboard grid-tags block">
+            @foreach ($tags as $tag)
+                <div class="box">
+                    <p class="title is-6 is-info">{{$tag->name}}</p>
+                    <span class="tag is-info">{{count($tag->projects)}} project{{count($tag->projects) === 1 ? '' : 's'}}.</span>
+                    <form action="{{route('tags.destroy', $tag->id)}}" 
+                        method="post" 
+                        style="display: inline-block;">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="button is-small is-dark">
+                            <i class="far fa-times-circle fa-2x"></i>
+                        </button>
+                    </form>
 
-                    </p>
                 </div>
-            </div>
-        @endforeach
+            @endforeach
+        </div>
     @else
         <p>Não existem tags</p>
     @endif
+
+
 
 
 

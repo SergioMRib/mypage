@@ -31,6 +31,8 @@ body {
     background-color: transparent;
 }
 
+/* navbar specific */
+
 @font-face {
     font-family: 'scriptinaregular';
     src: url('/font/scriptin-webfont.woff2') format('woff2'),
@@ -43,6 +45,7 @@ body {
 .natural-font {
     font-family: scriptinaregular;
 }
+
 
 .grid {
     display: grid;
@@ -69,4 +72,24 @@ body {
     grid-column: 1 / 2;
     grid-row: 2 / 3;
     justify-self: end;
+}
+
+/* grid to apply to projects, tags and categories */
+
+.grid-dashboard {
+    display: grid;
+    column-gap: 0.5em;
+    row-gap: 0.5em;
+}
+
+.grid-tags {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+}
+
+.grid-categories {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+}
+
+.grid-projects {
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
 }

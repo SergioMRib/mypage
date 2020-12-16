@@ -20,7 +20,7 @@
         {{-- The description --}}
         <div class="field">
             <label for="description">Add description</label>
-            <textarea type="text" class="input"
+            <textarea type="text" class="textarea"
                 name="description" id="description"
                 placeholder="Description" style="white-space: pre-line; white-space: pre-wrap; "
                 ></textarea>
