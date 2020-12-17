@@ -2,9 +2,8 @@
     background-image: url(../img/homepage-background.webp) ;
     background-image: -webkit-image-set(
             url(../img/homepage-background.webp) 1x,
-
         );
-background-image: image-set(
+    background-image: image-set(
             url(../img/homepage-background.jpeg) 1x,
         ); /* Safari */
     background-position: center center;
@@ -74,7 +73,7 @@ body {
     justify-self: end;
 }
 
-/* grid to apply to projects, tags and categories */
+/* grid to apply dashboard projects, tags and categories */
 
 .grid-dashboard {
     display: grid;
@@ -92,4 +91,19 @@ body {
 
 .grid-projects {
     grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+}
+
+/* styling the footer */
+
+footer {
+    display: grid;
+    /* grid-template-columns: repeat(3, 1fr); */
+    grid-template-rows: auto auto;
+}
+
+.climate-clock {
+    max-width: 300px;
+    justify-self: center;
+    /* grid-column: 2/3;
+    grid-row: 2/3; */
 }
