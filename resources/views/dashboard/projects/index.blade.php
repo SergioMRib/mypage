@@ -4,7 +4,7 @@
 @section('content')
 
     <h3 class="is-title is-size-3">{{$current ?? ''}}</h3>
-    <a href="{{route('projects.create')}}" class="button">
+    <a href="{{route('projects.create')}}" class="button is-outlined">
         <i class="fas fa-plus-square"></i>
     </a>
 
@@ -34,17 +34,17 @@
                         
                     </div>
                     <div class="">
-                        <a href="{{route('projects.show', $project->id)}}" class="button is-info is-outlined is-small">
+                        <a href="{{route('projects.show', $project->id)}}" class="button is-primary is-outlined is-small">
                             <i class="fas fa-search"></i>
                         </a>
-                        <a href="{{route('projects.edit', $project->id)}}" class="button is-primary is-outlined is-small">
+                        <a href="{{route('projects.edit', $project->id)}}" class="button is-warning is-outlined is-small">
                             <i class="fas fa-edit"></i>
                         </a>
                         <form action="{{route('projects.destroy', $project->id)}}" 
                             method="post" style="display: inline-block;">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="button is-warning is-outlined is-small" 
+                            <button type="submit" class="button is-danger is-outlined is-small" 
                                 style="display: inline-block;">
                                 <i class="fas fa-trash"></i>
                             </button>
