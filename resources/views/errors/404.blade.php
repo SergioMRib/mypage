@@ -13,6 +13,7 @@
                         <p>The page you requested was not found</p>
                         <p>
                             <a href="/">Go to Homepage</a>
+                            <a href="{{route('dashboard')}}"> {{ route('dashboard')}} </a>
                         </p>
                     </div>
                   </article>
